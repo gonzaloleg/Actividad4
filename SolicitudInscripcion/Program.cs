@@ -15,6 +15,7 @@ namespace SolicitudInscripcion
             Materia.VerMateriaPorCarrera();
             Curso.VerCursoPorMateria();
             Inscripcion.ImprimirComprobante();
+            Console.ReadKey();
         }
     }
 }
