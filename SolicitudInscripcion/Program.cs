@@ -10,6 +10,11 @@ namespace SolicitudInscripcion
     {
         static void Main(string[] args)
         {
+            Alumno.Inicializar();
+            Carrera.VerCarrera();
+            Materia.VerMateriaPorCarrera();
+            Curso.VerCursoPorMateria();
+            Inscripcion.ImprimirComprobante();
         }
     }
 }
