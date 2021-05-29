@@ -21,6 +21,11 @@ namespace SolicitudInscripcion
 
         List<Alumno> alumnos = new List<Alumno>();
 
+        public Alumno()
+        {
+
+        }
+
         public Alumno(string linea)
         {
             var datos = linea.Split('|');
@@ -36,15 +41,36 @@ namespace SolicitudInscripcion
             for (int i = 6; i == tabs; i++)
             {
                 MateriasAprobadas = datos[i] + "-" ;
-            }
+            }            
 
+        }
+
+        public void LeerMaestro()
+        {
+            if (File.Exists(maestroAlumnos))
+            {
+                using (var reader = new StreamReader(maestroAlumnos))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linea = reader.ReadLine();
+
+                        var unAlumno = new Alumno(linea);
+                        alumnos.Add(unAlumno);
+                    }
+                }
+            }
         }
 
 
 
-        internal static void Inicializar()
+        public void Inicializar()
         {
-            throw new NotImplementedException();
+            LeerMaestro();
+            foreach(Alumno a in alumnos)
+            {
+                Console.WriteLine(a);
+            }
         }
     }
 }
