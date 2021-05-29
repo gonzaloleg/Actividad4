@@ -64,6 +64,7 @@ namespace SolicitudInscripcion
 
 
 
+
         public void Inicializar()
         {
             LeerMaestro();
