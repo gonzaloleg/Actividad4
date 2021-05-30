@@ -44,9 +44,9 @@ namespace SolicitudInscripcion
         }
         public int VerCarrera()
         {
-            foreach (Carrera carreras in carreras)
+            foreach (Carrera carrera in carreras)
             {
-                Console.WriteLine(carreras);
+                Console.WriteLine($"{carrera.CodigoCarrera}-{carrera.NombreCarrera}");
             }
 
             Console.WriteLine();

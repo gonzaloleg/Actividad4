@@ -15,9 +15,8 @@ namespace SolicitudInscripcion
         public string Email { get; }
         public int CodigoCarrera { get; }
         public bool Ultimas4 { get; }  
-        public List<int> MateriasAprobadas { get; }
-
-        const string maestroAlumnos = "maestroAlumnos.txt";
+        public List<int> MateriasAprobadas { get; }      
+        
 
         public static List<Alumno> alumnos = new List<Alumno>();
 
@@ -40,20 +39,27 @@ namespace SolicitudInscripcion
 
             List<int> materiasAprobadas = new List<int>();
 
-            for (int i = 7; i < tabs + 1; i++)
-            {
-                materiasAprobadas.Add(int.Parse(datos[i]));
+            if (tabs > 6)
+            { 
+                for (int i = 7; i < tabs + 1; i++)
+                {
+                     materiasAprobadas.Add(int.Parse(datos[i]));
+                }
+
+                MateriasAprobadas = materiasAprobadas;
             }
 
-            MateriasAprobadas = materiasAprobadas;
+            
 
         }
 
-        public void LeerMaestroAlumnos()
-        {
-            if (File.Exists(maestroAlumnos))
+        
+
+        public void LeerMaestroAlumnos(string maestroElegido)
+        {             
+            if (File.Exists(maestroElegido))
             {
-                using (var reader = new StreamReader(maestroAlumnos))
+                using (var reader = new StreamReader(maestroElegido))
                 {
                     while (!reader.EndOfStream)
                     {

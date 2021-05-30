@@ -15,8 +15,12 @@ namespace SolicitudInscripcion
         const string maestroActuario2 = "maestroActuario2.txt";
         const string maestroEconomia = "maestroEconomia.txt";
 
+        public Materia()
+        {
 
-        internal static void ElegirMaestro (int opcion)
+        }
+
+        internal void ElegirMaestro (int opcion)
         {
             string maestroElegido;
 
