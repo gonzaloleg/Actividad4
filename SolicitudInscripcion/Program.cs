@@ -40,7 +40,7 @@ namespace SolicitudInscripcion
             unaMateria.ElegirMaestro(opcion);
             //Prueba para visualizar materias aprobadas de alumno elegido
             //unAlumno.Inicializar();
-            var lista = unAlumno.Inicializar();
+            var listaAprobadas = unAlumno.Inicializar();
             
             Materia.VerMateriaPorCarrera();
             bool salir = false;
@@ -49,14 +49,19 @@ namespace SolicitudInscripcion
             {
                 Console.WriteLine("¿En qué materia desea inscribirse?");
 
-                int opcion1 = Validaciones.ValidarOpcion("Ingrese código de materia", 1, 2000);
-                bool encontrado = Materia.BuscarCodigo(opcion);
-
-                while (!encontrado)
+                int codigoMateria = Validaciones.ValidarOpcion("Ingrese código de materia", 1, 2000);
+                if (!unaMateria.BuscarCodigo(codigoMateria))
                 {
-                    Console.Write("Código de materia no encontrado.");
+                    Console.WriteLine("Codigo de materia inválido.");
+                } 
+                if (listaAprobadas.Contains(codigoMateria))
+                {
+                    Console.WriteLine("No puede anotarse en una materia previamente aprobada. Seleccione nuevamente.");
                     continue;
                 }
+
+
+
 
             }
 

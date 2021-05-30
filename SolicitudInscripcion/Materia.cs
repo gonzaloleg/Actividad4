@@ -81,7 +81,7 @@ namespace SolicitudInscripcion
             }
         }
 
-        public static bool BuscarCodigo(int codigo)
+        public bool BuscarCodigo(int codigo)
         {
             int posicion = 0;
             bool encontrado = false;
@@ -98,6 +98,8 @@ namespace SolicitudInscripcion
             }
             return encontrado;
         }
+
+
 
         internal static void VerMateriaPorCarrera()
         {
