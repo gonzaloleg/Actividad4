@@ -41,11 +41,25 @@ namespace SolicitudInscripcion
             //Prueba para visualizar materias aprobadas de alumno elegido
             //unAlumno.Inicializar();
             var lista = unAlumno.Inicializar();
-            foreach(int st in lista)
-            {
-                Console.WriteLine(st);
-            }
+            
             Materia.VerMateriaPorCarrera();
+            bool salir = false;
+
+            while (!salir)
+            {
+                Console.WriteLine("¿En qué materia desea inscribirse?");
+
+                int opcion1 = Validaciones.ValidarOpcion("Ingrese código de materia", 1, 2000);
+                bool encontrado = Materia.BuscarCodigo(opcion);
+
+                while (!encontrado)
+                {
+                    Console.Write("Código de materia no encontrado.");
+                    continue;
+                }
+
+            }
+
             Console.ReadKey();
 
             /*            

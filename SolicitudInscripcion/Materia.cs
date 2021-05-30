@@ -81,14 +81,33 @@ namespace SolicitudInscripcion
             }
         }
 
-
+        public static bool BuscarCodigo(int codigo)
+        {
+            int posicion = 0;
+            bool encontrado = false;
+            while (posicion < materias.Count && !encontrado)
+            {
+                if (materias[posicion].CodigoMateria == codigo)
+                {
+                    encontrado = true;
+                }
+                else
+                {
+                    posicion++;
+                }
+            }
+            return encontrado;
+        }
 
         internal static void VerMateriaPorCarrera()
         {
-            foreach(Materia m in materias)
+            Console.WriteLine("Codigo Materia - Nombre Materia");
+            foreach (Materia materia in materias)
             {
-                Console.WriteLine($"{m.CodigoMateria}-{m.NombreMateria}");
+                Console.WriteLine($"{materia.CodigoMateria}\t{materia.NombreMateria}");
             }
         }
+
+
     }
 }

@@ -91,5 +91,15 @@ namespace SolicitudInscripcion
             return null;
 
         }
+
+        public bool GetUltimas4()
+        {
+            foreach (Alumno alumno in alumnos)
+            {
+                return alumno.Ultimas4;
+            }
+            return false;
+        }
+       
     }
 }
