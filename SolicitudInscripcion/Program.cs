@@ -30,8 +30,7 @@ namespace SolicitudInscripcion
             Alumno unAlumno = new Alumno();
             unAlumno.LeerMaestroAlumnos(maestroElegido);
             
-            //Prueba para visualizar materias aprobadas de alumno elegido
-            unAlumno.Inicializar();
+            
             Console.ReadKey();
 
             Carrera unaCarrera = new Carrera();
@@ -39,6 +38,13 @@ namespace SolicitudInscripcion
             int opcion2 = unaCarrera.VerCarrera();
             Materia unaMateria = new Materia();
             unaMateria.ElegirMaestro(opcion);
+            //Prueba para visualizar materias aprobadas de alumno elegido
+            //unAlumno.Inicializar();
+            var lista = unAlumno.Inicializar();
+            foreach(int st in lista)
+            {
+                Console.WriteLine(st);
+            }
             Materia.VerMateriaPorCarrera();
             Console.ReadKey();
 

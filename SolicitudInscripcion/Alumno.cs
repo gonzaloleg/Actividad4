@@ -72,15 +72,22 @@ namespace SolicitudInscripcion
             }
         }
         
-        public void Inicializar()
+        public List<int> Inicializar()
         {
+            /*
             //LeerMaestroAlumnos();
+            //string items;
             foreach(Alumno  a in alumnos)
             {
                 //Console.WriteLine($"{a.DNI}-{a.Apellido}-{a.Nombre}-{a.MateriasAprobadas}-");
                 string items = string.Join(Environment.NewLine, a.MateriasAprobadas);
-                Console.WriteLine(items);
+                return items;
             }
+            return "";*/
+
+            return MateriasAprobadas;
+            
+
         }
     }
 }
