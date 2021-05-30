@@ -10,6 +10,7 @@ namespace SolicitudInscripcion
     {       
 
         public static List<Materia> materias = new List<Materia>();
+        public static Dictionary<int, List<int>> correlativasPorCodigo = new Dictionary<int, List<int>>();
         public int CodigoMateria { get;  }
         public string NombreMateria { get; }
         public List<int> Correlativas { get; }
@@ -75,7 +76,7 @@ namespace SolicitudInscripcion
                         var linea = reader.ReadLine();
 
                         var unaMateria = new Materia(linea);
-                        materias.Add(unaMateria);
+                        materias.Add(unaMateria);                        
                     }
                 }
             }
@@ -107,7 +108,20 @@ namespace SolicitudInscripcion
             foreach (Materia materia in materias)
             {
                 Console.WriteLine($"{materia.CodigoMateria}\t{materia.NombreMateria}");
+
+                correlativasPorCodigo.Add(materia.CodigoMateria, materia.Correlativas);
             }
+
+        }
+
+        public List<int> VerificarCorrelativas(int codigoMateria)
+        {
+            //List<int> correlativas = new List<int>();
+
+            //if (correlativasPorCodigo.ContainsKey(codigoMateria))
+            //{
+                return correlativasPorCodigo[codigoMateria];
+            //}
         }
 
 

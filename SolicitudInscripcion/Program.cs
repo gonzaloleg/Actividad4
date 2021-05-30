@@ -60,7 +60,8 @@ namespace SolicitudInscripcion
                     continue;
                 }
 
-
+                var listaCorrelativas = unaMateria.VerificarCorrelativas(codigoMateria);
+                
 
 
             }
