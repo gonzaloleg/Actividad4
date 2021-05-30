@@ -35,9 +35,11 @@ namespace SolicitudInscripcion
             Console.ReadKey();
 
             Carrera unaCarrera = new Carrera();
+            unaCarrera.LeerMaestroCarreras();
             int opcion2 = unaCarrera.VerCarrera();
             Materia unaMateria = new Materia();
             unaMateria.ElegirMaestro(opcion);
+            Materia.VerMateriaPorCarrera();
             Console.ReadKey();
 
             /*            
