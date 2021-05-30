@@ -47,16 +47,14 @@ namespace SolicitudInscripcion
                 }
 
                 MateriasAprobadas = materiasAprobadas;
-            }
-
-            
+            }            
 
         }
 
         
 
         public void LeerMaestroAlumnos(string maestroElegido)
-        {             
+        {
             if (File.Exists(maestroElegido))
             {
                 using (var reader = new StreamReader(maestroElegido))
@@ -70,6 +68,7 @@ namespace SolicitudInscripcion
                     }
                 }
             }
+            
         }
         
         public List<int> Inicializar()
@@ -85,8 +84,11 @@ namespace SolicitudInscripcion
             }
             return "";*/
 
-            return MateriasAprobadas;
-            
+            foreach(Alumno a in alumnos)
+            {
+                return a.MateriasAprobadas;
+            }
+            return null;
 
         }
     }
