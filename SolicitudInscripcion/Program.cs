@@ -11,10 +11,11 @@ namespace SolicitudInscripcion
         static void Main(string[] args)
         {
             Alumno unAlumno = new Alumno();
+            unAlumno.LeerMaestroAlumnos();
             unAlumno.Inicializar();
             Console.ReadKey();
-           
-            /*
+
+            /*            
             Carrera.VerCarrera();
             Materia.VerMateriaPorCarrera();
             Curso.VerCursoPorMateria();

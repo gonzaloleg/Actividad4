@@ -8,9 +8,51 @@ namespace SolicitudInscripcion
 {
     internal class Carrera
     {
-        internal static void VerCarrera()
+        public int CodigoCarrera { get; }
+        public string NombreCarrera { get; }
+        
+        const string maestroCarreras = "maestroCarreras.txt";
+
+        public static List<Carrera> carreras = new List<Carrera>();
+
+        public Carrera (string linea)
         {
-            throw new NotImplementedException();
+            var datos = linea.Split('|');
+            CodigoCarrera = int.Parse(datos[0]);
+            NombreCarrera = datos[1];
+        }
+        public Carrera()
+        {
+
+        }
+
+        public void LeerMaestroCarreras()
+        {
+            if (File.Exists(maestroCarreras))
+            {
+                using (var reader = new StreamReader(maestroCarreras))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linea = reader.ReadLine();
+
+                        var unaCarrera = new Carrera(linea);
+                        carreras.Add(unaCarrera);
+                    }
+                }
+            }
+        }
+        public int VerCarrera()
+        {
+            foreach (Carrera carreras in carreras)
+            {
+                Console.WriteLine(carreras);
+            }
+
+            Console.WriteLine();
+            int opcion = Validaciones.ValidarOpcion("¿En qué carrera desea anotarse?", 1, 6);
+
+            return opcion;
         }
     }
 }

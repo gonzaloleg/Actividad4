@@ -19,7 +19,7 @@ namespace SolicitudInscripcion
 
         const string maestroAlumnos = "maestroAlumnos.txt";
 
-        List<Alumno> alumnos = new List<Alumno>();
+        public static List<Alumno> alumnos = new List<Alumno>();
 
         public Alumno()
         {
@@ -45,7 +45,7 @@ namespace SolicitudInscripcion
 
         }
 
-        public void LeerMaestro()
+        public void LeerMaestroAlumnos()
         {
             if (File.Exists(maestroAlumnos))
             {
@@ -61,16 +61,12 @@ namespace SolicitudInscripcion
                 }
             }
         }
-
-
-
-
         public void Inicializar()
         {
-            LeerMaestro();
+            //LeerMaestroAlumnos();
             foreach(Alumno a in alumnos)
             {
-                Console.WriteLine(a);
+                Console.WriteLine($"{a.NumeroRegistro}-{a.Apellido}-{a.Nombre}-{a.MateriasAprobadas}-{a.DNI}-{a.Email}-{a.Ultimas4}-{a.CodigoCarrera}");
             }
         }
     }
