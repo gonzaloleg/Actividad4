@@ -38,12 +38,14 @@ namespace SolicitudInscripcion
             Ultimas4 = bool.Parse(datos[6]);
             var tabs = linea.Count(c => c == '|');
 
-            List<int> MateriasAprobadas = new List<int>();
+            List<int> materiasAprobadas = new List<int>();
 
             for (int i = 7; i < tabs + 1; i++)
             {
-                MateriasAprobadas.Add(int.Parse(datos[i]));
-            }            
+                materiasAprobadas.Add(int.Parse(datos[i]));
+            }
+
+            MateriasAprobadas = materiasAprobadas;
 
         }
 
@@ -58,17 +60,20 @@ namespace SolicitudInscripcion
                         var linea = reader.ReadLine();
 
                         var unAlumno = new Alumno(linea);
-                        //alumnos.Add(unAlumno);
+                        alumnos.Add(unAlumno);
                     }
                 }
             }
         }
+        
         public void Inicializar()
         {
             //LeerMaestroAlumnos();
-            foreach(int materia in MateriasAprobadas)
+            foreach(Alumno  a in alumnos)
             {
-                Console.WriteLine($"{materia}");
+                //Console.WriteLine($"{a.DNI}-{a.Apellido}-{a.Nombre}-{a.MateriasAprobadas}-");
+                string items = string.Join(Environment.NewLine, a.MateriasAprobadas);
+                Console.WriteLine(items);
             }
         }
     }
