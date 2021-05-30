@@ -15,7 +15,7 @@ namespace SolicitudInscripcion
         public string Email { get; }
         public int CodigoCarrera { get; }
         public bool Ultimas4 { get; }  
-        public string MateriasAprobadas { get; }
+        public List<int> MateriasAprobadas { get; }
 
         const string maestroAlumnos = "maestroAlumnos.txt";
 
@@ -38,9 +38,11 @@ namespace SolicitudInscripcion
             Ultimas4 = bool.Parse(datos[6]);
             var tabs = linea.Count(c => c == '|');
 
-            for (int i = 6; i == tabs; i++)
+            List<int> MateriasAprobadas = new List<int>();
+
+            for (int i = 7; i < tabs + 1; i++)
             {
-                MateriasAprobadas = datos[i] + "-" ;
+                MateriasAprobadas.Add(int.Parse(datos[i]));
             }            
 
         }
@@ -56,7 +58,7 @@ namespace SolicitudInscripcion
                         var linea = reader.ReadLine();
 
                         var unAlumno = new Alumno(linea);
-                        alumnos.Add(unAlumno);
+                        //alumnos.Add(unAlumno);
                     }
                 }
             }
@@ -64,9 +66,9 @@ namespace SolicitudInscripcion
         public void Inicializar()
         {
             //LeerMaestroAlumnos();
-            foreach(Alumno a in alumnos)
+            foreach(int materia in MateriasAprobadas)
             {
-                Console.WriteLine($"{a.NumeroRegistro}-{a.Apellido}-{a.Nombre}-{a.MateriasAprobadas}-{a.DNI}-{a.Email}-{a.Ultimas4}-{a.CodigoCarrera}");
+                Console.WriteLine($"{materia}");
             }
         }
     }
