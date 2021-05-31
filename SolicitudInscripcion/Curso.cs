@@ -44,7 +44,7 @@ namespace SolicitudInscripcion
             {
                 if (codigoMateria == cursos[i].CodigoMateria)
                 {
-                    Console.WriteLine($"{cursos[i].CodigoCurso}-{cursos[i].NombreMateria}-{cursos[i].Docente}-{cursos[i].Dias}-{cursos[i].Horario}-{cursos[i].Sede}");
+                    Console.WriteLine($"{cursos[i].CodigoCurso}\t{cursos[i].NombreMateria}\t{cursos[i].Docente}\t{cursos[i].Dias}\t{cursos[i].Horario}\t{cursos[i].Sede}");
                 }
             }
             int opcionCurso = Validaciones.ValidarOpcion("Ingrese codigo del curso en el cual desea anotarse:", 1, 289);
@@ -62,7 +62,7 @@ namespace SolicitudInscripcion
         {
             foreach (Curso curso in cursosElegidos)
             {
-                Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                Console.WriteLine($"{curso.CodigoCurso}\t{curso.NombreMateria}\t{curso.Docente}\t{curso.Dias}\t{curso.Horario}\t{curso.Sede}");
             }
         }
 
