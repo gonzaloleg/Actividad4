@@ -139,14 +139,11 @@ namespace SolicitudInscripcion
                 }
             }
 
-            Console.ReadKey();
+            
 
-            /*            
-            Carrera.VerCarrera();
-            Materia.VerMateriaPorCarrera();
-            Curso.VerCursoPorMateria();
-            Inscripcion.ImprimirComprobante();
-            Console.WriteLine();*/
+
+
+            Console.ReadKey();            
 
         }
     }
