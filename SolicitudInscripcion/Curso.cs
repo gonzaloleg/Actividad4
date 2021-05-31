@@ -45,7 +45,7 @@ namespace SolicitudInscripcion
                 if (codigoMateria == cursos[i].CodigoMateria)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine("Codigo \tNombre Materia\t\tDocente\t\tDia\tHorario\tSede");
+                    Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
                     Console.WriteLine($"{cursos[i].CodigoCurso}\t{cursos[i].NombreMateria}\t{cursos[i].Docente}\t{cursos[i].Dias}\t{cursos[i].Horario}\t{cursos[i].Sede}");
                     Console.ResetColor();
                 }

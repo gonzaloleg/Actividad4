@@ -21,7 +21,7 @@ namespace SolicitudInscripcion
             throw new NotImplementedException();
 
         }
-        internal static void ImprimirComprobante()
+        static void ImprimirComprobante()
         {
             throw new NotImplementedException();
         }
