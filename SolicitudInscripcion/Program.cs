@@ -102,6 +102,7 @@ namespace SolicitudInscripcion
                 unCurso.LeerMaestroAlumnos();                
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
+                cursosElegidos.AddRange(unCurso.CargarCursoElegido());
 
                 
 
@@ -130,7 +131,7 @@ namespace SolicitudInscripcion
                 }
                 if (otra == 1 && cantidad >= 4)
                 {
-                    Console.WriteLine("No puede anotarse a mas cursos.");
+                    Console.WriteLine("No puede anotarse a mas cursos.");                    
                     salir = true;
                 }
                 if (otra == 2)
@@ -139,10 +140,17 @@ namespace SolicitudInscripcion
                 }
             }
 
+            Console.WriteLine("Se solicitará inscripción a los siguientes cursos:");
+            foreach (Curso curso in cursosElegidos)
+            {
+                Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+            }
+
+            Console.WriteLine("Presione cualquier tecla para imprimir el comprobante.");
+
+            Inscripcion unaInscripcion = new Inscripcion(unAlumno.NumeroRegistro, unAlumno.Nombre, unAlumno.Apellido,1);
             
-
-
-
+            unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
             Console.ReadKey();            
 
         }

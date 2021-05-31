@@ -61,6 +61,17 @@ namespace SolicitudInscripcion
             }
         }
 
+        public List<Curso> CargarCursoElegido()
+        {
+            List<Curso> listaAuxiliar = new List<Curso>();
+            foreach (Curso curso in cursosElegidos)
+            {
+                listaAuxiliar.Add(curso);
+            }
+
+            return listaAuxiliar;
+        }
+
         public void ListarCursosElegidos()
         {
             foreach (Curso curso in cursosElegidos)
