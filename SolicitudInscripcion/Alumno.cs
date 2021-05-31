@@ -98,6 +98,7 @@ namespace SolicitudInscripcion
             {
                 if (alumno.Ultimas4 == true)
                 {
+                    
                     return true;
                 }
                 else

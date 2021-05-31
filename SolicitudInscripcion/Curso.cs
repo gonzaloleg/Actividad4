@@ -44,11 +44,13 @@ namespace SolicitudInscripcion
             {
                 if (codigoMateria == cursos[i].CodigoMateria)
                 {
-                    Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine("Codigo \tNombre Materia\t\tDocente\t\tDia\tHorario\tSede");
                     Console.WriteLine($"{cursos[i].CodigoCurso}\t{cursos[i].NombreMateria}\t{cursos[i].Docente}\t{cursos[i].Dias}\t{cursos[i].Horario}\t{cursos[i].Sede}");
+                    Console.ResetColor();
                 }
             }
-            int opcionCurso = Validaciones.ValidarOpcion("Ingrese codigo del curso en el cual desea anotarse:", 1, 289);
+            int opcionCurso = Validaciones.ValidarOpcion("\nIngrese código del curso en el cual desea anotarse:", 1, 289);
             
             for (int i = 0; i < cursos.Count; i++)
             {
@@ -63,7 +65,10 @@ namespace SolicitudInscripcion
         {
             foreach (Curso curso in cursosElegidos)
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("\nEl curso seleccionado es el siguiente:");
                 Console.WriteLine($"{curso.CodigoCurso}\t{curso.NombreMateria}\t{curso.Docente}\t{curso.Dias}\t{curso.Horario}\t{curso.Sede}");
+                Console.ResetColor();
             }
         }
 

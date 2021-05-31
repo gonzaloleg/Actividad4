@@ -14,7 +14,7 @@ namespace SolicitudInscripcion
 
             Console.WriteLine("¿Con qué alumno desea ingresar?");
             int opcion = Validaciones.ValidarOpcion("1 - 881861-Leguizamon Gonzalo\n2 - 890043-Rojas Maria\n3 - 894561-Forrester Mateo", 1, 3);
-            string maestroElegido="";
+            string maestroElegido= "";
             if (opcion == 1)
             {
                 maestroElegido = "maestroAlumno1.txt";
@@ -50,7 +50,7 @@ namespace SolicitudInscripcion
 
             while (!salir && cantidad <= 3)
             {
-                Console.WriteLine("¿En qué materia desea inscribirse?");
+                Console.WriteLine("\n¿En qué materia desea inscribirse?");
 
                 int codigoMateria = Validaciones.ValidarOpcion("Ingrese código de materia", 1, 2000);
                 if (!unaMateria.BuscarCodigo(codigoMateria))
@@ -94,23 +94,24 @@ namespace SolicitudInscripcion
                 unCurso.LeerMaestroAlumnos();                
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
-                
+                       
 
-                
-                Console.WriteLine("¿Desea anotarse en otra materia?");
+                Console.WriteLine("\n¿Desea anotarse en otra materia?");
                 int otra = Validaciones.ValidarOpcion("1 - SI       2 - NO", 1, 2);
 
                 if (otra == 1)
                 {
+                   
                     cantidad++;
+                    _ = otra == 1 && otra > 4;
+
+                    Console.WriteLine("No puede inscribirse a más de 3 materias.");
                     continue;                    
                 }
                 if (otra == 2)
                 {
                     salir = true;
                 }
-
-
             }
 
             Console.ReadKey();
