@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SolicitudInscripcion
 {
-    class Inscripcion
+    internal class Inscripcion
     {
         public List<Curso> cursosSolicitados = new List<Curso>();
 
@@ -17,10 +17,11 @@ namespace SolicitudInscripcion
 
         public void GuardarSolicitud()
         {
+
             throw new NotImplementedException();
 
         }
-        internal static void ImprimirComprobante()
+        static void ImprimirComprobante()
         {
             throw new NotImplementedException();
         }
