@@ -146,10 +146,11 @@ namespace SolicitudInscripcion
                 Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
             }
 
-            Console.WriteLine("Presione cualquier tecla para imprimir el comprobante.");
+            Console.WriteLine("\nPresione cualquier tecla para imprimir el comprobante.");
 
             Inscripcion unaInscripcion = new Inscripcion(unAlumno.NumeroRegistro, unAlumno.Nombre, unAlumno.Apellido,1);
-            
+            Console.ReadKey();
+
             unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
             Console.ReadKey();            
 
