@@ -67,7 +67,7 @@ namespace SolicitudInscripcion
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("\nEl curso seleccionado es el siguiente:");
-                Console.WriteLine($"{curso.CodigoCurso}\t{curso.NombreMateria}\t{curso.Docente}\t{curso.Dias}\t{curso.Horario}\t{curso.Sede}");
+                Console.WriteLine($"{curso.CodigoCurso}\t{curso.NombreMateria}\t\t{curso.Docente}\t{curso.Dias}\t{curso.Horario}\t{curso.Sede}");
                 Console.ResetColor();
             }
         }

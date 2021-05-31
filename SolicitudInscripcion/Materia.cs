@@ -104,7 +104,7 @@ namespace SolicitudInscripcion
 
         internal static void VerMateriaPorCarrera()
         {
-            Console.WriteLine("Codigo Materia - Nombre Materia");
+            Console.WriteLine("Codigo -  Nombre Materia");
             foreach (Materia materia in materias)
             {
                 Console.WriteLine($"{materia.CodigoMateria}\t{materia.NombreMateria}");
@@ -116,12 +116,20 @@ namespace SolicitudInscripcion
 
         public List<int> VerificarCorrelativas(int codigoMateria)
         {
-            //List<int> correlativas = new List<int>();
+            return correlativasPorCodigo[codigoMateria];            
+            
+        }
 
-            //if (correlativasPorCodigo.ContainsKey(codigoMateria))
-            //{
-                return correlativasPorCodigo[codigoMateria];
-            //}
+        public bool VerificarExistencia (int codigoMateria)
+        {
+            if (correlativasPorCodigo.ContainsKey(codigoMateria))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
