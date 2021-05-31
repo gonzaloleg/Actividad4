@@ -36,6 +36,8 @@ namespace SolicitudInscripcion
 
             Carrera unaCarrera = new Carrera();
             unaCarrera.LeerMaestroCarreras();
+            Console.WriteLine("\nLISTADO DE CARRERAS");
+            Console.WriteLine("-------------------");
             int opcion2 = unaCarrera.VerCarrera();
             Materia unaMateria = new Materia();
             unaMateria.ElegirMaestro(opcion2);            
@@ -60,7 +62,6 @@ namespace SolicitudInscripcion
                     continue;
                 }
 
-                //bool encontrado = true;
 
                 if (!unaMateria.BuscarCodigo(codigoMateria))
                 {
@@ -143,16 +144,24 @@ namespace SolicitudInscripcion
             Console.WriteLine("Se solicitará inscripción a los siguientes cursos:");
             foreach (Curso curso in cursosElegidos)
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                Console.ResetColor();
             }
 
             Console.WriteLine("\nPresione cualquier tecla para imprimir el comprobante.");
+            Console.ReadKey();
+            var datosAlumno = unAlumno.GetDatosAlumno();
 
-            Inscripcion unaInscripcion = new Inscripcion(unAlumno.NumeroRegistro, unAlumno.Nombre, unAlumno.Apellido,1);
+            foreach (Alumno alumno in datosAlumno)
+            {
+                Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, 1);
+                Console.ReadKey();
+                unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
+
+            }
             Console.ReadKey();
 
-            unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
-            Console.ReadKey();            
 
         }
     }

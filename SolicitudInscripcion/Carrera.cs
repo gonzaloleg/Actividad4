@@ -46,11 +46,13 @@ namespace SolicitudInscripcion
         {
             foreach (Carrera carrera in carreras)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"{carrera.CodigoCarrera}-{carrera.NombreCarrera}");
+                Console.ResetColor();
             }
 
             Console.WriteLine();
-            int opcion = Validaciones.ValidarOpcion("¿En qué carrera desea anotarse?", 1, 6);
+            int opcion = Validaciones.ValidarOpcion("\n¿En qué carrera desea anotarse?", 1, 6);
 
             return opcion;
         }

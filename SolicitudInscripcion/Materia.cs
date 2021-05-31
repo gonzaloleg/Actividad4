@@ -104,10 +104,11 @@ namespace SolicitudInscripcion
 
         internal static void VerMateriaPorCarrera()
         {
-            Console.WriteLine("Codigo -  Nombre Materia");
+            Console.WriteLine("\n");
+            Console.WriteLine("Cod.Materia             Nombre Materia");
             foreach (Materia materia in materias)
             {
-                Console.WriteLine($"{materia.CodigoMateria}\t{materia.NombreMateria}");
+                Console.WriteLine($"{materia.CodigoMateria}\t\t\t{materia.NombreMateria}");
 
                 correlativasPorCodigo.Add(materia.CodigoMateria, materia.Correlativas);
             }

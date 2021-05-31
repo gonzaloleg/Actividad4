@@ -98,6 +98,17 @@ namespace SolicitudInscripcion
             }
             return false;
         }
+
+        public List<Alumno> GetDatosAlumno()
+        {
+            List<Alumno> listaAuxiliar = new List<Alumno>();
+            foreach (Alumno alumno in alumnos)
+            {
+                listaAuxiliar.Add(alumno);
+            }
+
+            return listaAuxiliar;
+        }
        
     }
 }

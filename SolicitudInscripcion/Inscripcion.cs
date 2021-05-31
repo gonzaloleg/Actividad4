@@ -32,7 +32,7 @@ namespace SolicitudInscripcion
             Console.WriteLine($"Codigo Inscripcion #{unaInscripcion.CodigoInscripcion}");
 
             Console.WriteLine("Cursos:");
-            Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
+            Console.WriteLine("\nCodigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
             foreach (Curso curso in cursos)
             {
                 Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
