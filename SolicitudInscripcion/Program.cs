@@ -9,9 +9,11 @@ namespace SolicitudInscripcion
     class Program
     {
         static void Main(string[] args)
-        {         
+        {
+            List<Curso> cursosElegidos = new List<Curso>();
+
             Console.WriteLine("¿Con qué alumno desea ingresar?");
-            int opcion = Validaciones.ValidarOpcion("881861-Leguizamon Gonzalo\n890043-Rojas Maria\n894561-Forrester Mateo", 1, 3);
+            int opcion = Validaciones.ValidarOpcion("1 - 881861-Leguizamon Gonzalo\n2 - 890043-Rojas Maria\n3 - 894561-Forrester Mateo", 1, 3);
             string maestroElegido="";
             if (opcion == 1)
             {
@@ -37,7 +39,7 @@ namespace SolicitudInscripcion
             unaCarrera.LeerMaestroCarreras();
             int opcion2 = unaCarrera.VerCarrera();
             Materia unaMateria = new Materia();
-            unaMateria.ElegirMaestro(opcion);
+            unaMateria.ElegirMaestro(opcion2);
             //Prueba para visualizar materias aprobadas de alumno elegido
             //unAlumno.Inicializar();
             var listaAprobadas = unAlumno.Inicializar();
@@ -62,29 +64,46 @@ namespace SolicitudInscripcion
 
                 var listaCorrelativas = unaMateria.VerificarCorrelativas(codigoMateria);
                 int contador = 0;
-                for (int i = 0; i < listaCorrelativas.Count; i++)
-                {
-                    for (int q = 0; q < listaAprobadas.Count; q++)
+
+                if (listaCorrelativas != null)
+                {                
+                    for (int i = 0; i < listaCorrelativas.Count; i++)
                     {
-                        if (listaCorrelativas[i] == listaAprobadas[q])
+                        for (int q = 0; q < listaAprobadas.Count; q++)
                         {
-                            contador++;
+                            if (listaCorrelativas[i] == listaAprobadas[q])
+                            {
+                                contador++;
+                            }
                         }
                     }
+                    if (contador == listaCorrelativas.Count)
+                    {
+                        Console.WriteLine("OK");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No cuenta con las materias correlativas requeridas aprobadas para anotarse. Seleccione otra materia.");
+                        continue;
+                    }
                 }
-                if(contador == listaCorrelativas.Count)
-                {
-                    Console.WriteLine("OK");
-                }
-                else
-                {
-                    Console.WriteLine("No cuenta con las materias correlativas requeridas aprobadas para anotarse.");
-                }
+                
 
                 Curso unCurso = new Curso();
-                unCurso.LeerMaestroAlumnos();
+                unCurso.LeerMaestroAlumnos();                
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
+
+                /*
+                int contador2 = 1;
+                Console.WriteLine("¿Desea anotarse en otra materia?");
+                int otra = Validaciones.ValidarOpcion("1 - SI       2 - NO", 1, 2); 
+                
+                if (otra == 1 && contador2 <= 3)
+                {
+                    continue;
+                }*/
+
 
             }
 
