@@ -1,3 +1,3 @@
 # GrupoI.Actividad4
-# Utilizar default location para archivos en el .RAR
-# Diagramas actualizados y Plan de pruebas adjuntado
+# Utilizar default location para archivos maestros (en Archivos de Prueba.rar)
+# Diagramas actualizados (en Diagramas.rar) y Plan de pruebas adjuntado (Excel)
