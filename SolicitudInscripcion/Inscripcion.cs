@@ -8,6 +8,18 @@ namespace SolicitudInscripcion
 {
     class Inscripcion
     {
+        public List<Curso> cursosSolicitados = new List<Curso>();
+
+        public Inscripcion()
+        {
+
+        }
+
+        public void GuardarSolicitud()
+        {
+            throw new NotImplementedException();
+
+        }
         internal static void ImprimirComprobante()
         {
             throw new NotImplementedException();

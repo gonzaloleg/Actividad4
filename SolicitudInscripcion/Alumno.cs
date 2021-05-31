@@ -96,7 +96,14 @@ namespace SolicitudInscripcion
         {
             foreach (Alumno alumno in alumnos)
             {
-                return alumno.Ultimas4;
+                if (alumno.Ultimas4 == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             return false;
         }

@@ -46,8 +46,9 @@ namespace SolicitudInscripcion
             
             Materia.VerMateriaPorCarrera();
             bool salir = false;
+            int cantidad = 1;
 
-            while (!salir)
+            while (!salir && cantidad <= 3)
             {
                 Console.WriteLine("¿En qué materia desea inscribirse?");
 
@@ -93,16 +94,21 @@ namespace SolicitudInscripcion
                 unCurso.LeerMaestroAlumnos();                
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
-
-                /*
-                int contador2 = 1;
-                Console.WriteLine("¿Desea anotarse en otra materia?");
-                int otra = Validaciones.ValidarOpcion("1 - SI       2 - NO", 1, 2); 
                 
-                if (otra == 1 && contador2 <= 3)
+
+                
+                Console.WriteLine("¿Desea anotarse en otra materia?");
+                int otra = Validaciones.ValidarOpcion("1 - SI       2 - NO", 1, 2);
+
+                if (otra == 1)
                 {
-                    continue;
-                }*/
+                    cantidad++;
+                    continue;                    
+                }
+                if (otra == 2)
+                {
+                    salir = true;
+                }
 
 
             }
