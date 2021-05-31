@@ -76,7 +76,15 @@ namespace SolicitudInscripcion
                 {
                     Console.WriteLine("OK");
                 }
+                else
+                {
+                    Console.WriteLine("No cuenta con las materias correlativas requeridas aprobadas para anotarse.");
+                }
 
+                Curso unCurso = new Curso();
+                unCurso.LeerMaestroAlumnos();
+                unCurso.VerCursoPorMateria(codigoMateria);
+                unCurso.ListarCursosElegidos();
 
             }
 
