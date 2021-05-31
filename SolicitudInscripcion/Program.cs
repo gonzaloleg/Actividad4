@@ -61,7 +61,21 @@ namespace SolicitudInscripcion
                 }
 
                 var listaCorrelativas = unaMateria.VerificarCorrelativas(codigoMateria);
-                
+                int contador = 0;
+                for (int i = 0; i < listaCorrelativas.Count; i++)
+                {
+                    for (int q = 0; q < listaAprobadas.Count; q++)
+                    {
+                        if (listaCorrelativas[i] == listaAprobadas[q])
+                        {
+                            contador++;
+                        }
+                    }
+                }
+                if(contador == listaCorrelativas.Count)
+                {
+                    Console.WriteLine("OK");
+                }
 
 
             }
