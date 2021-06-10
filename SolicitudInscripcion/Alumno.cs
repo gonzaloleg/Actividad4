@@ -60,6 +60,7 @@ namespace SolicitudInscripcion
             {
                 using (var reader = new StreamReader(maestroAlumnos))
                 {
+                    bool encontrado = false;
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
@@ -68,16 +69,25 @@ namespace SolicitudInscripcion
                         {
                             var unAlumno = new Alumno(linea);
                             alumnos.Add(unAlumno);
+                            encontrado = true;
                             break;
-                        }
-                        else
+                        }                      
+                        
+                        
+                    }
+                    reader.DiscardBufferedData();
+                    reader.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
+                    while (!reader.EndOfStream)
+                    {
+
+                        var linea2 = reader.ReadLine();
+                        if ((linea2.IndexOf(opcion, StringComparison.CurrentCultureIgnoreCase) == -1) && encontrado == false)
                         {
                             Console.WriteLine("Registro no encontrado en la base de datos. Programa terminado.");
                             Console.ReadKey();
                             System.Environment.Exit(0);
                         }
-                        
-                        
+
                     }
                 }
             }

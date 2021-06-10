@@ -140,7 +140,7 @@ namespace SolicitudInscripcion
                 }
             }
 
-            Console.WriteLine("Se solicitará inscripción a los siguientes cursos:");
+            Console.WriteLine("\nSe solicitará inscripción a los siguientes cursos:");
             foreach (Curso curso in cursosElegidos)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -148,7 +148,7 @@ namespace SolicitudInscripcion
                 Console.ResetColor();
             }
 
-            Console.WriteLine("\nPresione cualquier tecla para imprimir el comprobante.");
+            Console.WriteLine("\nSolicitu de inscripción finalizada, presione cualquier tecla para imprimir el comprobante y terminar.");
             Console.ReadKey();
             var datosAlumno = unAlumno.GetDatosAlumno();
 
