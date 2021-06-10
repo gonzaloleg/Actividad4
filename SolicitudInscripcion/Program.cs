@@ -148,7 +148,7 @@ namespace SolicitudInscripcion
                 Console.ResetColor();
             }
 
-            Console.WriteLine("\nSolicitu de inscripción finalizada, presione cualquier tecla para imprimir el comprobante y terminar.");
+            Console.WriteLine("\nSolicitud de inscripción finalizada, presione cualquier tecla para imprimir el comprobante y terminar.");
             Console.ReadKey();
             var datosAlumno = unAlumno.GetDatosAlumno();
 
