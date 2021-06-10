@@ -37,7 +37,7 @@ namespace SolicitudInscripcion
 
             Console.WriteLine("COMPROBANTE DE INSCRIPCION");
             Console.WriteLine("--------------------------");
-            Console.WriteLine($"\nNro Registro: {unaInscripcion.NumeroRegistro}");
+            Console.WriteLine($"Nro Registro: {unaInscripcion.NumeroRegistro}");
             Console.WriteLine($"{unaInscripcion.Nombre} {unaInscripcion.Apellido}");
             Console.WriteLine($"Codigo Inscripcion #{unaInscripcion.CodigoInscripcion}");
 
@@ -45,7 +45,7 @@ namespace SolicitudInscripcion
             Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
             foreach (Curso curso in cursos)
             {
-                Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
             }
             
         }

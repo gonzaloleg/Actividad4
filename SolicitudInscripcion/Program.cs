@@ -99,7 +99,8 @@ namespace SolicitudInscripcion
                 
 
                 Curso unCurso = new Curso();
-                unCurso.LeerMaestroAlumnos();                
+                unCurso.LeerMaestroAlumnos();
+                Console.WriteLine("\nCursos disponibles:");
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
                 cursosElegidos.AddRange(unCurso.CargarCursoElegido());
@@ -160,8 +161,7 @@ namespace SolicitudInscripcion
                 Console.ReadKey();
                 unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
 
-            }
-            Console.ReadKey();
+            }           
 
 
         }

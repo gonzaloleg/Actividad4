@@ -40,18 +40,20 @@ namespace SolicitudInscripcion
 
         public void VerCursoPorMateria(int codigoMateria)
         {
+            List<int> listaAuxiliar2 = new List<int>();
             for (int i = 0; i < cursos.Count ; i++)
             {
                 if (codigoMateria == cursos[i].CodigoMateria)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine("\nCursos disponibles:");
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;                    
                     Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
                     Console.WriteLine($"{cursos[i].CodigoCurso}\t{cursos[i].NombreMateria}\t{cursos[i].Docente}\t{cursos[i].Dias}\t{cursos[i].Horario}\t{cursos[i].Sede}");
                     Console.ResetColor();
+                    listaAuxiliar2.Add(cursos[i].CodigoCurso);
                 }
-            }
-            int opcionCurso = Validaciones.ValidarOpcion("\nIngrese código del curso en el cual desea anotarse:", 1, 289);
+            }            
+
+            int opcionCurso = Validaciones.ValidarOpcion("\nIngrese código del curso en el cual desea anotarse:", listaAuxiliar2.Min(), listaAuxiliar2.Max());
             
             for (int i = 0; i < cursos.Count; i++)
             {
