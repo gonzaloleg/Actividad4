@@ -15,8 +15,9 @@ namespace SolicitudInscripcion
         public string Email { get; }
         public int CodigoCarrera { get; }
         public bool Ultimas4 { get; }  
-        public List<int> MateriasAprobadas { get; }      
-        
+        public List<int> MateriasAprobadas { get; }
+
+        const string maestroAlumnos = "maestroAlumnos.txt";
 
         public static List<Alumno> alumnos = new List<Alumno>();
 
@@ -53,18 +54,30 @@ namespace SolicitudInscripcion
 
         
 
-        public void LeerMaestroAlumnos(string maestroElegido)
+        public void LeerMaestroAlumnos(string opcion)
         {
-            if (File.Exists(maestroElegido))
+            if (File.Exists(maestroAlumnos))
             {
-                using (var reader = new StreamReader(maestroElegido))
+                using (var reader = new StreamReader(maestroAlumnos))
                 {
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
-
-                        var unAlumno = new Alumno(linea);
-                        alumnos.Add(unAlumno);
+                        if (String.IsNullOrEmpty(linea)) continue;
+                        if (linea.IndexOf(opcion, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                        {
+                            var unAlumno = new Alumno(linea);
+                            alumnos.Add(unAlumno);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Registro no encontrado en la base de datos. Programa terminado.");
+                            Console.ReadKey();
+                            System.Environment.Exit(0);
+                        }
+                        
+                        
                     }
                 }
             }

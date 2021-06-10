@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace SolicitudInscripcion
 {
@@ -13,26 +15,23 @@ namespace SolicitudInscripcion
             List<Curso> cursosElegidos = new List<Curso>();
 
             Console.WriteLine("¿Con qué alumno desea ingresar?");
-            int opcion = Validaciones.ValidarOpcion("1 - 881861-Leguizamon Gonzalo\n2 - 890043-Rojas Maria\n3 - 894561-Forrester Mateo", 1, 3);
-            string maestroElegido= "";
-            if (opcion == 1)
-            {
-                maestroElegido = "maestroAlumno1.txt";
-            }
-            if (opcion == 2)
-            {
-                maestroElegido = "maestroAlumno2.txt";
-            }
-            if (opcion == 3)
-            {
-                maestroElegido = "maestroAlumno3.txt";
-
-            }
+            int opcion = Validaciones.ValidarOpcion("Ingrese número de registro:", 100000, 999999);
+            
+            string registroElegido = opcion.ToString();
 
             Alumno unAlumno = new Alumno();
-            unAlumno.LeerMaestroAlumnos(maestroElegido);            
-            
-            Console.ReadKey();
+            unAlumno.LeerMaestroAlumnos(registroElegido);
+
+            string archivo = opcion + ".txt";
+
+            if (File.Exists(archivo))
+            {
+                Console.WriteLine("El alumno ya realizó la inscripción para este período. Terminando programa.");
+                Console.ReadKey();
+                System.Environment.Exit(0);
+            }            
+
+                Console.ReadKey();
 
             Carrera unaCarrera = new Carrera();
             unaCarrera.LeerMaestroCarreras();
@@ -155,7 +154,9 @@ namespace SolicitudInscripcion
 
             foreach (Alumno alumno in datosAlumno)
             {
-                Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, 1);
+                var random = new Random();
+                int numRandom = random.Next(10000);
+                Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, numRandom);
                 Console.ReadKey();
                 unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
 

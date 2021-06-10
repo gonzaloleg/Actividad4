@@ -24,5 +24,6 @@ namespace SolicitudInscripcion
 
             return res;
         }
+        
     }
 }
