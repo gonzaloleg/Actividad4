@@ -21,6 +21,7 @@ namespace SolicitudInscripcion
         public List<Curso> cursos = new List<Curso>();
 
         public List<Curso> cursosElegidos = new List<Curso>();
+        public List<Curso> cursosAlternativosElegidos = new List<Curso>();
         public Curso(string linea)
         {
             var datos = linea.Split('|');
@@ -60,6 +61,19 @@ namespace SolicitudInscripcion
                 if (opcionCurso == cursos[i].CodigoCurso)
                 {
                     cursosElegidos.Add(cursos[i]);
+                }                
+            }
+
+            if (listaAuxiliar2.Count > 1)
+            {
+                int opcionCursoAlt = Validaciones.ValidarOpcion2("\nIngrese código del curso alternativo en el cual desea anotarse:", listaAuxiliar2.Min(), listaAuxiliar2.Max(), opcionCurso);
+
+                for (int j = 0; j < cursos.Count; j++)
+                {                                       
+                    if (opcionCursoAlt == cursos[j].CodigoCurso)
+                    {
+                        cursosAlternativosElegidos.Add(cursos[j]);                        
+                    }
                 }
             }
         }
@@ -74,6 +88,16 @@ namespace SolicitudInscripcion
 
             return listaAuxiliar;
         }
+        public List<Curso> CargarCursoAlternativoElegido()
+        {
+            List<Curso> listaAuxiliar3 = new List<Curso>();
+            foreach (Curso curso in cursosAlternativosElegidos)
+            {
+                listaAuxiliar3.Add(curso);
+            }
+
+            return listaAuxiliar3;
+        }
 
         public void ListarCursosElegidos()
         {
@@ -81,6 +105,13 @@ namespace SolicitudInscripcion
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("\nEl curso seleccionado es el siguiente:");
+                Console.WriteLine($"{curso.CodigoCurso}\t{curso.NombreMateria}\t\t{curso.Docente}\t{curso.Dias}\t{curso.Horario}\t{curso.Sede}");
+                Console.ResetColor();
+            }
+            foreach (Curso curso in cursosAlternativosElegidos)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("\nEl curso alternativo seleccionado es el siguiente:");
                 Console.WriteLine($"{curso.CodigoCurso}\t{curso.NombreMateria}\t\t{curso.Docente}\t{curso.Dias}\t{curso.Horario}\t{curso.Sede}");
                 Console.ResetColor();
             }

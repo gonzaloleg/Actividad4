@@ -24,7 +24,7 @@ namespace SolicitudInscripcion
             CodigoInscripcion = codigoInscripcion;
         }
       
-        public void ImprimirComprobante(Inscripcion unaInscripcion, List<Curso> cursos)
+        public void ImprimirComprobante(Inscripcion unaInscripcion, List<Curso> cursos, List<Curso> cursosAlternativos)
         {
             Console.Clear();
 
@@ -41,13 +41,19 @@ namespace SolicitudInscripcion
             Console.WriteLine($"{unaInscripcion.Nombre} {unaInscripcion.Apellido}");
             Console.WriteLine($"Codigo Inscripcion #{unaInscripcion.CodigoInscripcion}");
 
-            Console.WriteLine("\nCursos:");
+            Console.WriteLine("\nCursos originales:");
             Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
             foreach (Curso curso in cursos)
             {
                 Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
             }
-            
+            Console.WriteLine("\nCursos alternativos:");
+            Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
+            foreach (Curso curso in cursosAlternativos)
+            {
+                Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+            }
+
         }
     }
 }

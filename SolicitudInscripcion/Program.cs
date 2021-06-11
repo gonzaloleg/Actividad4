@@ -13,6 +13,7 @@ namespace SolicitudInscripcion
         static void Main(string[] args)
         {
             List<Curso> cursosElegidos = new List<Curso>();
+            List<Curso> cursosAlternativosElegidos = new List<Curso>();
 
             Console.WriteLine("¿Con qué alumno desea ingresar?");
             int opcion = Validaciones.ValidarOpcion("Ingrese número de registro:", 100000, 999999);
@@ -104,8 +105,9 @@ namespace SolicitudInscripcion
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
                 cursosElegidos.AddRange(unCurso.CargarCursoElegido());
+                cursosAlternativosElegidos.AddRange(unCurso.CargarCursoAlternativoElegido());
 
-                
+
 
                 Console.WriteLine("\n¿Desea anotarse en otra materia?");
                 int otra = Validaciones.ValidarOpcion("1 - SI       2 - NO", 1, 2);
@@ -142,7 +144,15 @@ namespace SolicitudInscripcion
             }
 
             Console.WriteLine("\nSe solicitará inscripción a los siguientes cursos:");
+            Console.WriteLine("Cursos originales:");
             foreach (Curso curso in cursosElegidos)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                Console.ResetColor();
+            }
+            Console.WriteLine("\nCursos alternativos:");
+            foreach (Curso curso in cursosAlternativosElegidos)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
@@ -159,7 +169,7 @@ namespace SolicitudInscripcion
                 int numRandom = random.Next(10000);
                 Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, numRandom);
                 Console.ReadKey();
-                unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos);
+                unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos, cursosAlternativosElegidos);
 
             }           
 
