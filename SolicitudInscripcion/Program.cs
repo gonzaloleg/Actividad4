@@ -40,6 +40,8 @@ namespace SolicitudInscripcion
             Console.WriteLine("-------------------");
             int opcion2 = unaCarrera.VerCarrera();
             Materia unaMateria = new Materia();
+            Console.WriteLine("\nLISTADO DE MATERIAS");
+            Console.WriteLine("-------------------");
             unaMateria.ElegirMaestro(opcion2);            
             var listaAprobadas = unAlumno.Inicializar();
             

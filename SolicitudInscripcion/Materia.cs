@@ -103,8 +103,7 @@ namespace SolicitudInscripcion
 
 
         internal static void VerMateriaPorCarrera()
-        {
-            Console.WriteLine("\n");
+        {            
             Console.WriteLine("Cod.Materia             Nombre Materia");
             foreach (Materia materia in materias)
             {

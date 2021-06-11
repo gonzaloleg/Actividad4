@@ -35,8 +35,7 @@ namespace SolicitudInscripcion
             {
 
                 Console.WriteLine(mensaje);
-                //Console.WriteLine($"\nNo puede ingresar un valor menor a: {min} \nNo puede ingresar un valor mayor a: {max}");
-
+               
                 if (!int.TryParse(Console.ReadLine(), out res))
                 {
                     Console.WriteLine("\nPor favor ingrese un número válido.");
@@ -46,6 +45,10 @@ namespace SolicitudInscripcion
                 {
                     Console.WriteLine("\nNo puede seleccionar el curso original como opción alternativa.");
                     res = -1;
+                }
+                if (res < min || res > max)
+                {
+                    Console.WriteLine($"\nNo puede ingresar un valor menor a: {min} \nNo puede ingresar un valor mayor a: {max}");
                 }
 
             } while (res < min || res > max || res == prohibido);            
