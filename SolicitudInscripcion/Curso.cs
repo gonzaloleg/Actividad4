@@ -76,6 +76,14 @@ namespace SolicitudInscripcion
                     }
                 }
             }
+
+            if (listaAuxiliar2.Count == 1)
+            {
+                Console.WriteLine("\nNota:");
+                Console.WriteLine("----");
+                Console.WriteLine("La oferta cuenta con una única opción de curso para ésta materia. No podrá elegir un curso alternativo.");
+                Console.ReadKey();
+            }
         }
 
         public List<Curso> CargarCursoElegido()

@@ -67,7 +67,7 @@ namespace SolicitudInscripcion
 
                 if (!unaMateria.BuscarCodigo(codigoMateria))
                 {
-                    Console.WriteLine("Materia no encontrada");
+                    Console.WriteLine("\nMateria no encontrada");
                     continue;
                 }
                 var listaCorrelativas = unaMateria.VerificarCorrelativas(codigoMateria);
@@ -96,7 +96,9 @@ namespace SolicitudInscripcion
                     }
                     if (contador != listaCorrelativas.Count && unAlumno.GetUltimas4())
                     {
-                        Console.WriteLine("\nNo se aplican correlativas por encontrarse en las ultimas 4 materias. Elija curso:");
+                        Console.WriteLine("\nNota:");
+                        Console.WriteLine("----");
+                        Console.WriteLine("No se aplican correlativas por encontrarse en las ultimas 4 materias. Elija curso:");
                     }
                 }
                 
