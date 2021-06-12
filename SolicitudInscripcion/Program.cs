@@ -32,7 +32,7 @@ namespace SolicitudInscripcion
                 System.Environment.Exit(0);
             }            
 
-                Console.ReadKey();
+                //Console.ReadKey();
 
             Carrera unaCarrera = new Carrera();
             unaCarrera.LeerMaestroCarreras();
@@ -155,27 +155,44 @@ namespace SolicitudInscripcion
                 Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
                 Console.ResetColor();
             }
-            Console.WriteLine("\nCursos alternativos:");
-            foreach (Curso curso in cursosAlternativosElegidos)
+
+            if (cursosAlternativosElegidos.Count > 0)
             {
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
-                Console.ResetColor();
+                Console.WriteLine("\nCursos alternativos:");
+                foreach (Curso curso in cursosAlternativosElegidos)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine($"\n{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                    Console.ResetColor();
+                }
+            }
+            
+
+            Console.WriteLine("\nSolicitud de inscripción finalizada. Ingrese opción:");
+            int confirmacion = Validaciones.ValidarOpcion("\n1 - Imprimir comprobante y finalizar     \n2 - Cancelar inscripción y salir", 1, 2);
+
+            if (confirmacion == 1)
+            {
+                Console.ReadKey();
+                var datosAlumno = unAlumno.GetDatosAlumno();
+
+                foreach (Alumno alumno in datosAlumno)
+                {
+                    var random = new Random();
+                    int numRandom = random.Next(10000);
+                    Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, numRandom);                    
+                    unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos, cursosAlternativosElegidos);
+
+                }
             }
 
-            Console.WriteLine("\nSolicitud de inscripción finalizada, presione cualquier tecla para imprimir el comprobante y terminar.");
-            Console.ReadKey();
-            var datosAlumno = unAlumno.GetDatosAlumno();
-
-            foreach (Alumno alumno in datosAlumno)
+            if (confirmacion == 2)
             {
-                var random = new Random();
-                int numRandom = random.Next(10000);
-                Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, numRandom);
+                Console.WriteLine("Solicitud de inscripción cancelada. Programa terminado.");
                 Console.ReadKey();
-                unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos, cursosAlternativosElegidos);
+            }
 
-            }           
+                    
 
 
         }

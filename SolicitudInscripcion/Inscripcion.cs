@@ -47,12 +47,18 @@ namespace SolicitudInscripcion
             {
                 Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
             }
-            Console.WriteLine("\nCursos alternativos:");
-            Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
-            foreach (Curso curso in cursosAlternativos)
+
+            if (cursosAlternativos.Count > 0)
             {
-                Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                Console.WriteLine("\nCursos alternativos:");
+                Console.WriteLine("Codigo \tNombre Materia\t\t\tDocente\t\tDia\tHorario\tSede");
+                foreach (Curso curso in cursosAlternativos)
+                {
+                    Console.WriteLine($"{curso.CodigoCurso}-{curso.NombreMateria}-{curso.Docente}-{curso.Dias}-{curso.Horario}-{curso.Sede}");
+                }
+
             }
+            
 
         }
     }
