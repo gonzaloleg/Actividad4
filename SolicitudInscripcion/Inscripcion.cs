@@ -10,11 +10,12 @@ namespace SolicitudInscripcion
 {
     internal class Inscripcion
     {
-        public List<Curso> cursosSolicitados = new List<Curso>();
+        
         public int NumeroRegistro { get;}
         public string Nombre { get; }
         public string Apellido { get; }
         public int CodigoInscripcion { get; }
+        public int CodigoCurso { get;  }
 
         public Inscripcion(int nroRegistro, string nombre, string apellido, int codigoInscripcion)
         {

@@ -30,9 +30,7 @@ namespace SolicitudInscripcion
                 Console.WriteLine("El alumno ya realizó la inscripción para este período. Terminando programa.");
                 Console.ReadKey();
                 System.Environment.Exit(0);
-            }            
-
-                //Console.ReadKey();
+            }                           
 
             Carrera unaCarrera = new Carrera();
             unaCarrera.LeerMaestroCarreras();
@@ -104,7 +102,7 @@ namespace SolicitudInscripcion
                 
 
                 Curso unCurso = new Curso();
-                unCurso.LeerMaestroAlumnos();
+                unCurso.LeerMaestroCursos();
                 Console.WriteLine("\nCursos disponibles:");
                 unCurso.VerCursoPorMateria(codigoMateria);
                 unCurso.ListarCursosElegidos();
@@ -173,6 +171,7 @@ namespace SolicitudInscripcion
 
             if (confirmacion == 1)
             {
+                Console.WriteLine("Comprobante emitido exitosamente. Presione una tecla para salir.");
                 Console.ReadKey();
                 var datosAlumno = unAlumno.GetDatosAlumno();
 
@@ -181,10 +180,10 @@ namespace SolicitudInscripcion
                     var random = new Random();
                     int numRandom = random.Next(10000);
                     Inscripcion unaInscripcion = new Inscripcion(alumno.NumeroRegistro, alumno.Nombre, alumno.Apellido, numRandom);                    
-                    unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos, cursosAlternativosElegidos);
-
+                    unaInscripcion.ImprimirComprobante(unaInscripcion, cursosElegidos, cursosAlternativosElegidos);                    
                 }
             }
+            
 
             if (confirmacion == 2)
             {

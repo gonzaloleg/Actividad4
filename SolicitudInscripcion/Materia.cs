@@ -118,19 +118,7 @@ namespace SolicitudInscripcion
         {
             return correlativasPorCodigo[codigoMateria];            
             
-        }
-
-        public bool VerificarExistencia (int codigoMateria)
-        {
-            if (correlativasPorCodigo.ContainsKey(codigoMateria))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        }       
 
 
     }

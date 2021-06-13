@@ -125,7 +125,7 @@ namespace SolicitudInscripcion
             }
         }
 
-        public void LeerMaestroAlumnos()
+        public void LeerMaestroCursos()
         {
             if (File.Exists(maestroCursos))
             {
