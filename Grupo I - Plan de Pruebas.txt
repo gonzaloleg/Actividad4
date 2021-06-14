@@ -1,0 +1,170 @@
+-----------------------------------------------------------------------------------------------------------
+Casos de exito
+-----------------------------------------------------------------------------------------------------------
+1)Descripción:La correcta solicitud de inscripción a 3 materias.
+
+Número de Registro: 881513
+[presenta carreras] Seleccionar: 1
+[presenta materias] Seleccionar: 250
+[presenta cursos] Seleccionar curso original: 174
+		  Seleccionar curso alternativo: 177
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 1275
+[presenta cursos] Seleccionar curso original: 269
+		  Seleccionar curso alternativo: 270
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 1603
+[presenta cursos] Seleccionar curso original: 171
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “881513.txt”.
+
+-----------------------------------------------------------------------------------------------------------
+2)Descripción: La correcta solicitud de inscripción a 2 materias. 
+
+Número de Registro: 857458
+[presenta carreras] Seleccionar: 2
+[presenta materias] Seleccionar: 1359
+[presenta cursos] Seleccionar curso original: 166
+          	  Seleccionar curso alternativo: 167
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 353
+[presenta cursos]: Seleccionar curso original: 102
+		   Seleccionar curso alternativo: 104
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “857458.txt”.
+
+-----------------------------------------------------------------------------------------------------------
+3)Descripción: La correcta solicitud de inscripción a 1 materia.
+
+Número de Registro: 864585
+[presenta carreras] Seleccionar: 3
+[presenta materias] Seleccionar: 252
+[presenta cursos] Seleccionar curso original: 2
+		  Seleccionar curso alternativo: 5
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “864585.txt”.
+
+-----------------------------------------------------------------------------------------------------------
+4)Descripción: La correcta solicitud de inscripción a 4 materias, debido a que se encuentra en las últimas 4.
+
+Número de Registro: 891112
+[presenta carreras] Seleccionar: 4
+[presenta materias] Seleccionar: 759
+[presenta cursos] Seleccionar curso original: 254
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 273
+[presenta cursos] Seleccionar curso original: 158
+	 	  Seleccionar curso alternativo: 160
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 756
+[presenta cursos] Seleccionar curso original: 251
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 277
+[presenta cursos] Seleccionar curso original: 90
+		  Seleccionar curso alternativo: 93
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “891112.txt”.
+
+-----------------------------------------------------------------------------------------------------------
+5)Descripción: La correcta solicitud de inscripción a 2 materias, aunque se encuentre en las últimas 4.
+
+Número de Registro: 893331
+[presenta carreras] Seleccionar: 5
+[presenta materias] Seleccionar: 759
+[presenta cursos] Seleccionar curso original: 254
+[pregunta si desea anotarse a otra materia] Seleccionar: 1
+[solicita que se ingrese materia] Seleccionar: 287
+[presenta cursos]: Seleccionar curso original: 186
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “893331.txt”.
+
+-----------------------------------------------------------------------------------------------------------
+6)Descripción: La correcta solicitud de inscripción a 1 materia, aunque se encuentre en las últimas 4.
+
+Número de Registro: 851122
+[presenta carreras] Seleccionar: 6
+[presenta materias] Seleccionar: 562
+[presenta cursos] Seleccionar curso original: 192
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “851122.txt”.
+-----------------------------------------------------------------------------------------------------------
+7)Descripción: Correcta inscripción a 1 materia, se encuentra en las últimas 4 por lo tanto se eliminan correlatividades
+
+Número de Registro: 881861
+[presenta carreras] Seleccionar: 1
+[presenta materias] Seleccionar: 1660
+[presenta cursos] Seleccionar curso original: 276
+[pregunta si desea anotarse a otra materia] Seleccionar: 2
+[presenta resumen de los cursos] Confirmar inscripción: 1
+[termina ejecución]
+Verificar comprobante de inscripción “881861.txt”.
+-----------------------------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------------------
+Validaciones de restricciones
+-----------------------------------------------------------------------------------------------------------
+8)Descripción: Intento de inscripción por segunda vez (debe haber corrido caso de exito nro 7)
+Número de Registro: 881861
+[presenta mensaje y termina] "El alumno ya realizó la inscripción para éste período. Terminando programa."
+-----------------------------------------------------------------------------------------------------------
+9)Descripción: Intentar anotarse en una materia sin cumplir requisito de correlativas
+Número de Registro: 871235
+[presenta carreras] Seleccionar: 1
+[presenta materias] Seleccionar: 1601
+[presenta mensaje y solicita otro codigo] "No cuenta con las materias correlativas requeridas aprobadas para anotarse. Seleccione otra materia."
+
+**No terminar ejecucion, continuar la misma hasta caso 14 inclusive
+-----------------------------------------------------------------------------------------------------------
+10)Descripción: Validacion en ingreso de codigo materia respetando formato (continuar desde ejecucion de pto 9)
+Ingresar código de materia: 13
+[presenta mensaje y solicita otro codigo]
+"Codigo de materia inválido.
+
+Materia no encontrada"
+-----------------------------------------------------------------------------------------------------------
+11)Descripción: Validacion en ingreso de codigo materia sin respetar formato (continuar desde ejecucion de pto 10)
+Ingresar código de materia: asd
+[presenta mensaje y solicita otro codigo]
+"Por favor ingrese un número válido.
+
+No puede ingresar un valor menor a: 1
+No puede ingresar un valor mayor a: 2000"
+-----------------------------------------------------------------------------------------------------------
+12)Descripción: Intentar anotarse en una materia ya aprobada (continuar desde ejecucion de pto 11)
+Ingresar codigo de materia: 252
+[presenta mensaje y solicita otro codigo]
+"No puede anotarse en una materia previamente aprobada. Seleccione nuevamente."
+-----------------------------------------------------------------------------------------------------------
+13)Descripción: Seleccionar curso alternativo igual a original(continuar desde ejecucion de pto 12)
+Ingresar código de materia: 1275
+[presenta cursos] Seleccionar curso original: 268
+		  Seleccionar curso alternativo: 268
+[presenta mensaje y solicita otro codigo]
+"No puede seleccionar el curso original como opción alternativa."
+-----------------------------------------------------------------------------------------------------------
+14)Descripción: Seleccionar curso alternativo no correspondiente a la materia seleccionada(continuar desde ejecucion de pto 13)
+Ingresar codigo de curso: 210
+[presenta mensaje y solicita otro codigo]
+"No puede ingresar un valor menor a: 268
+No puede ingresar un valor mayor a: 270"
+
+**Terminar ejecucion y correr nuevamente
+-----------------------------------------------------------------------------------------------------------
+15)Descripción: Intentar ingreso con un alumno inexistente
+Número de Registro: 815540
+[presenta mensaje y termina programa]
+"Registro no encontrado en la base de datos. Programa terminado."
