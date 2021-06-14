@@ -54,7 +54,7 @@ namespace SolicitudInscripcion
                 int codigoMateria = Validaciones.ValidarOpcion("\nIngrese código de materia", 1, 2000);
                 if (!unaMateria.BuscarCodigo(codigoMateria))
                 {
-                    Console.WriteLine("\nCodigo de materia inválido.");
+                    Console.WriteLine("\nCódigo de materia inválido.");
                 } 
                 if (listaAprobadas.Contains(codigoMateria))
                 {
